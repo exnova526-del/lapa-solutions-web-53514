@@ -36,7 +36,7 @@ const VehicleComparison = () => {
         direcaoHidraulica: true,
         vidrosEletricos: true,
         tracao4x4: true,
-        automatico: false,
+        automatico: true,
         multimidia: true,
       }
     },
