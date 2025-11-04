@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Thiago Locadora Design System - Automotivo, Dinâmico e Profissional
+Cores principais: Vermelho vibrante, Preto/Cinza metálico, Branco, Amarelo
+*/
+
+@layer base {
+  :root {
+    /* Background - Cinza escuro metálico */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    /* Cards - Cinza mais claro que o fundo */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Vermelho vibrante */
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Cinza metálico */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Accent - Amarelo vibrante para destaque */
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 10%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 85% 55%;
+
+    --radius: 0.5rem;
+
+    /* Gradientes automotivos */
+    --gradient-primary: linear-gradient(135deg, hsl(0, 85%, 55%), hsl(0, 85%, 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(45, 100%, 55%), hsl(35, 100%, 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 7%), hsl(0, 0%, 10%));
+    --gradient-metallic: linear-gradient(135deg, hsl(0, 0%, 15%), hsl(0, 0%, 22%));
+
+    /* Sombras com vermelho para efeito de velocidade */
+    --shadow-primary: 0 10px 40px -10px hsl(0, 85%, 55% / 0.4);
+    --shadow-accent: 0 5px 30px -5px hsl(45, 100%, 55% / 0.3);
+    --shadow-lg: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px hsl(0, 85%, 55% / 0.3);
+
+    /* Transições suaves */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  img {
+    filter: brightness(1) contrast(1.05) saturate(1.1);
+  }
+}
+
+@layer utilities {
+  /* Hover com efeito de velocidade */
+  .hover-speed {
+    transition: all var(--transition-smooth);
+  }
+
+  .hover-speed:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  /* Efeito de brilho vermelho */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(0, 85%, 55% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(0, 85%, 55% / 0.6);
+    }
+  }
+
+  /* Gradiente de texto */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card metálico */
+  .card-metallic {
+    background: var(--gradient-metallic);
+    border: 1px solid hsl(0, 0%, 25%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Botão com efeito de aceleração */
+  .btn-speed {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+  }
+
+  .btn-speed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-speed:hover::before {
+    left: 100%;
+  }
+
+  .btn-speed:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+  }
+}
