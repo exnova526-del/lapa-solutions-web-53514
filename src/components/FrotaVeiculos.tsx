@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Phone, Truck, Wrench, Users, Calendar } from "lucide-react";
 import fleetImage from "@/assets/fleet-cars-new.jpg";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import voyageImg from "@/assets/voyage.jpg";
 import hiluxImg from "@/assets/hilux.jpg";
 import corollaImg from "@/assets/corolla.jpg";
@@ -8,6 +9,10 @@ import sw4Img from "@/assets/sw4-edited.jpg";
 import stradaImg from "@/assets/strada.jpg";
 
 const FrotaVeiculos = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { ref: imageRef, isVisible: imageVisible } = useScrollReveal();
+  const { ref: listRef, isVisible: listVisible } = useScrollReveal();
+  
   const veiculos = [
     { 
       nome: "Volkswagen Voyage", 
@@ -66,25 +71,31 @@ const FrotaVeiculos = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-card/50 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef as any}
+          className={`text-center mb-16 scroll-reveal ${headerVisible ? 'revealed' : ''}`}
+        >
           {/* Brand Badge */}
-          <div className="inline-block mb-6 animate-scale-in-bounce">
-            <div className="bg-primary/10 text-primary px-6 py-2 rounded-lg font-black text-sm tracking-wide border border-primary/20">
+          <div className="inline-block mb-6">
+            <div className="bg-primary/10 text-primary px-6 py-2 rounded-lg font-black text-sm tracking-wide border border-primary/20 shine-effect">
               THIAGO LOCADORA DE VEÍCULOS
             </div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 leading-tight">
             Nossa <span className="text-gradient-primary">Frota</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Veículos modernos, seguros e sempre disponíveis para você
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left Image */}
-          <div className="relative animate-slide-in-left">
+          <div 
+            ref={imageRef as any}
+            className={`relative scroll-reveal-left ${imageVisible ? 'revealed' : ''}`}
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
               <img
                 src={fleetImage}
@@ -101,17 +112,19 @@ const FrotaVeiculos = () => {
           </div>
 
           {/* Right Content */}
-          <div className="animate-slide-in-right">
+          <div 
+            ref={listRef as any}
+            className={`scroll-reveal-right ${listVisible ? 'revealed' : ''}`}
+          >
             <h3 className="text-2xl font-bold text-foreground mb-6">
               Veículos <span className="text-primary">Disponíveis</span>
             </h3>
             
-            <div className="grid gap-4 mb-8">
+            <div className="grid gap-4 mb-8 stagger-container">
               {veiculos.map((veiculo, index) => (
                 <div
                   key={index}
-                  className="card-metallic rounded-xl p-5 hover:scale-[1.02] transition-all animate-slide-in-right"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  className="card-metallic rounded-xl p-5 hover-lift transition-all"
                 >
                   <div className="flex gap-4">
                     <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border-2 border-primary/20 bg-white">
@@ -208,9 +221,9 @@ const FrotaVeiculos = () => {
         </div>
 
         {/* Additional Services */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 stagger-container">
           {/* Guincho */}
-          <div className="card-metallic p-8 rounded-2xl hover:scale-105 transition-transform">
+          <div className="card-metallic p-8 rounded-2xl hover-lift transition-all">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Truck className="h-8 w-8 text-primary" />
@@ -238,7 +251,7 @@ const FrotaVeiculos = () => {
           </div>
 
           {/* Munck */}
-          <div className="card-metallic p-8 rounded-2xl hover:scale-105 transition-transform">
+          <div className="card-metallic p-8 rounded-2xl hover-lift transition-all">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Wrench className="h-8 w-8 text-accent" />

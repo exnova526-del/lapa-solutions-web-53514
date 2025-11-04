@@ -2,8 +2,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, TrendingUp, DollarSign, Leaf, Phone } from "lucide-react";
 import equipmentImage from "@/assets/construction-equipment.jpg";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const ServicosLapa = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
+  const { ref: imageRef, isVisible: imageVisible } = useScrollReveal();
+  
   const beneficios = [
     {
       icon: Shield,
@@ -32,32 +37,37 @@ const ServicosLapa = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="animate-slide-in-left">
+          <div 
+            ref={sectionRef as any}
+            className={`scroll-reveal-left ${sectionVisible ? 'revealed' : ''}`}
+          >
             {/* Brand Badge */}
-            <div className="inline-block mb-6 animate-scale-in-bounce">
-              <div className="bg-accent/10 text-accent px-4 py-2 rounded-lg font-bold text-sm tracking-wide border border-accent/20">
+            <div className="inline-block mb-6">
+              <div className="bg-accent/10 text-accent px-4 py-2 rounded-lg font-bold text-sm tracking-wide border border-accent/20 shine-effect">
                 LAPA ENTULHOS
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4 leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            <h2 
+              ref={titleRef as any}
+              className={`text-3xl md:text-4xl font-black text-foreground mb-4 leading-tight scroll-reveal ${titleVisible ? 'revealed' : ''}`}
+            >
               Locação de <span className="text-gradient-accent">Caçambas e Andaimes</span>
             </h2>
 
-            <p className="text-base text-muted-foreground mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-base text-muted-foreground mb-8 leading-relaxed">
               A Lapa Entulhos oferece soluções seguras e sustentáveis para obras e reformas.
               Trabalhamos com aluguel de caçambas e andaimes com foco em segurança, praticidade e custo-benefício.
             </p>
 
             {/* Benefits Grid */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid sm:grid-cols-2 gap-4 mb-8 stagger-container">
               {beneficios.map((beneficio, index) => {
                 const Icon = beneficio.icon;
                 return (
                   <div 
                     key={index} 
-                    className="card-metallic p-5 rounded-lg hover:scale-105 transition-transform animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="card-metallic p-5 rounded-lg hover-lift transition-all"
                   >
                     <div className="flex items-start gap-4">
                       <div className="bg-accent/10 p-3 rounded-lg">
@@ -107,14 +117,17 @@ const ServicosLapa = () => {
                   "_blank"
                 )
               }
-              className="w-full sm:w-auto btn-speed bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-base h-14 px-8"
+              className="w-full sm:w-auto btn-speed hover-lift bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-base h-14 px-8"
             >
               Solicitar Orçamento
             </Button>
           </div>
 
           {/* Right Image */}
-          <div className="relative animate-slide-in-right">
+          <div 
+            ref={imageRef as any}
+            className={`relative scroll-reveal-right ${imageVisible ? 'revealed' : ''}`}
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
               <img
                 src={equipmentImage}
