@@ -100,21 +100,57 @@ const FrotaVeiculos = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left Image */}
+          {/* Left Images Grid */}
           <div 
             ref={imageRef as any}
             className={`relative scroll-reveal-left ${imageVisible ? 'revealed' : ''}`}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-              <img
-                src={fleetImage}
-                alt="Frota de veículos disponíveis para locação"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="grid grid-cols-1 gap-4">
+              {/* SW4 */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <img
+                  src={sw4Img}
+                  alt="Toyota SW4 - 4x4, 7 Lugares"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <h4 className="text-lg font-bold text-white">Toyota SW4</h4>
+                </div>
+              </div>
+              
+              {/* Grid 2 columns for Polo and Strada */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Polo */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+                  <img
+                    src={poloImg}
+                    alt="Volkswagen Polo 2025"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3">
+                    <h4 className="text-base font-bold text-white">VW Polo</h4>
+                  </div>
+                </div>
+                
+                {/* Strada */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+                  <img
+                    src={stradaImg}
+                    alt="Fiat Strada"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3">
+                    <h4 className="text-base font-bold text-white">Fiat Strada</h4>
+                  </div>
+                </div>
+              </div>
             </div>
+            
             {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 bg-primary glow-primary px-6 py-4 rounded-xl shadow-2xl">
+            <div className="absolute -top-4 -right-4 bg-primary glow-primary px-6 py-4 rounded-xl shadow-2xl z-10">
               <div className="text-2xl font-black text-white">100%</div>
               <div className="text-xs font-medium text-white/90">Revisados</div>
             </div>
