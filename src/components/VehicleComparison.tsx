@@ -7,9 +7,25 @@ import hiluxImg from "@/assets/hilux.jpg";
 import corollaImg from "@/assets/corolla.jpg";
 import sw4Img from "@/assets/sw4-edited.jpg";
 import stradaImg from "@/assets/strada.jpg";
+import poloImg from "@/assets/polo.jpg";
 
 const VehicleComparison = () => {
   const veiculos = [
+    { 
+      nome: "Volkswagen Polo", 
+      imagem: poloImg,
+      ano: "2025",
+      cor: "Prata",
+      passageiros: 5,
+      caracteristicas: {
+        arCondicionado: true,
+        direcaoHidraulica: true,
+        vidrosEletricos: true,
+        tracao4x4: false,
+        automatico: true,
+        multimidia: true,
+      }
+    },
     { 
       nome: "Volkswagen Voyage", 
       imagem: voyageImg,
