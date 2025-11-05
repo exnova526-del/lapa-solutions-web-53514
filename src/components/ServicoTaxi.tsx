@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Clock, Shield, CreditCard, Wind, Phone, MessageCircle } from "lucide-react";
+import { Clock, Shield, CreditCard, Wind, Phone, MessageCircle, Car } from "lucide-react";
 import taxiImage from "@/assets/taxi-service.jpg";
+import poloImg from "@/assets/polo.jpg";
 
 const ServicoTaxi = () => {
   const destaques = [
@@ -75,6 +76,37 @@ const ServicoTaxi = () => {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Vehicle Card */}
+            <div className="card-metallic p-6 rounded-lg mb-6">
+              <h4 className="font-bold text-foreground mb-4 text-lg flex items-center gap-2">
+                <Car className="h-5 w-5 text-accent" />
+                Veículo Disponível:
+              </h4>
+              <div className="flex gap-4 items-center">
+                <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 border-2 border-accent/20 bg-white">
+                  <img 
+                    src={poloImg} 
+                    alt="Volkswagen Polo 2025"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h5 className="font-bold text-foreground text-base mb-2">Volkswagen Polo 2025</h5>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-accent/10 text-accent px-2.5 py-1 rounded-md text-xs font-medium">
+                      Automático
+                    </span>
+                    <span className="bg-accent/10 text-accent px-2.5 py-1 rounded-md text-xs font-medium">
+                      Ar Condicionado
+                    </span>
+                    <span className="bg-accent/10 text-accent px-2.5 py-1 rounded-md text-xs font-medium">
+                      5 Passageiros
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Service Highlights */}

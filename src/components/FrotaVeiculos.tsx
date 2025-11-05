@@ -7,6 +7,7 @@ import hiluxImg from "@/assets/hilux.jpg";
 import corollaImg from "@/assets/corolla.jpg";
 import sw4Img from "@/assets/sw4-edited.jpg";
 import stradaImg from "@/assets/strada.jpg";
+import poloImg from "@/assets/polo.jpg";
 
 const FrotaVeiculos = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
@@ -14,6 +15,14 @@ const FrotaVeiculos = () => {
   const { ref: listRef, isVisible: listVisible } = useScrollReveal();
   
   const veiculos = [
+    { 
+      nome: "Volkswagen Polo", 
+      imagem: poloImg,
+      ano: "2025",
+      cor: "Prata",
+      passageiros: 5,
+      caracteristicas: ["Automático", "Ar Condicionado", "Central Multimídia", "Vidros Elétricos"]
+    },
     { 
       nome: "Volkswagen Voyage", 
       imagem: voyageImg,
