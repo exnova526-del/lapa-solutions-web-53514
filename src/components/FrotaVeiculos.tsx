@@ -229,6 +229,46 @@ const FrotaVeiculos = () => {
           </div>
         </div>
 
+        {/* Featured Vehicles Gallery */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-foreground text-center mb-8">
+            Veículos em <span className="text-gradient-primary">Destaque</span>
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* SW4 */}
+            <div className="card-metallic rounded-2xl overflow-hidden hover-lift transition-all">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={sw4Img} 
+                  alt="Toyota SW4 - 4x4, 7 Lugares"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <h4 className="text-2xl font-bold text-white mb-1">Toyota SW4</h4>
+                  <p className="text-white/90 text-sm">4x4 • 7 Lugares • Ar Condicionado • Couro</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Hilux */}
+            <div className="card-metallic rounded-2xl overflow-hidden hover-lift transition-all">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={hiluxImg} 
+                  alt="Toyota Hilux - 4x4, Cabine Dupla"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <h4 className="text-2xl font-bold text-white mb-1">Toyota Hilux</h4>
+                  <p className="text-white/90 text-sm">4x4 • Cabine Dupla • Ar Condicionado • Diesel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Additional Services */}
         <div className="grid md:grid-cols-2 gap-8 stagger-container">
           {/* Guincho */}
