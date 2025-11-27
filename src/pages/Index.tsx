@@ -5,6 +5,7 @@ import VehicleComparison from "@/components/VehicleComparison";
 import ServicoTaxi from "@/components/ServicoTaxi";
 import ServicosPersonalizados from "@/components/ServicosPersonalizados";
 import PorQueEscolher from "@/components/PorQueEscolher";
+import InsuranceCompanies from "@/components/InsuranceCompanies";
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ const Index = () => {
         <ServicoTaxi />
         <ServicosPersonalizados />
         <PorQueEscolher />
+        <InsuranceCompanies />
         <FAQ />
         <Testimonials />
       </main>
