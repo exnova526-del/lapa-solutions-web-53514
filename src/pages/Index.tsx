@@ -4,6 +4,7 @@ import FrotaVeiculos from "@/components/FrotaVeiculos";
 import VehicleComparison from "@/components/VehicleComparison";
 import ServicoTaxi from "@/components/ServicoTaxi";
 import ServicosPersonalizados from "@/components/ServicosPersonalizados";
+import PorQueEscolher from "@/components/PorQueEscolher";
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Index = () => {
         <VehicleComparison />
         <ServicoTaxi />
         <ServicosPersonalizados />
+        <PorQueEscolher />
         <FAQ />
         <Testimonials />
       </main>
